@@ -1,0 +1,67 @@
+{% extends "base.html" %} {% block title %}Add Book - CSE 412{% endblock %} {%
+block content %}
+<div class="container mt-5">
+  <h1 class="mb-4">Add a New Book</h1>
+  {% with messages = get_flashed_messages(with_categories=true) %} {% if
+  messages %} {% for category, message in messages %}
+  <div class="alert alert-{{ category }}">{{ message }}</div>
+  {% endfor %} {% endif %} {% endwith %}
+  <form method="POST" action="{{ url_for('add_book.add_book') }}">
+    <div class="form-group">
+      <label for="title">Title:</label>
+      <input
+        type="text"
+        id="title"
+        name="title"
+        class="form-control"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="subtitle">Subtitle:</label>
+      <input type="text" id="subtitle" name="subtitle" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="author">Author:</label>
+      <input
+        type="text"
+        id="author"
+        name="author"
+        class="form-control"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="publish_date">Publish Date:</label>
+      <input
+        type="date"
+        id="publish_date"
+        name="publish_date"
+        class="form-control"
+      />
+    </div>
+    <div class="form-group">
+      <label for="number_of_pages">Number of Pages:</label>
+      <input
+        type="number"
+        id="number_of_pages"
+        name="number_of_pages"
+        class="form-control"
+      />
+    </div>
+    <div class="form-group">
+      <label for="isbn">ISBN:</label>
+      <input type="text" id="isbn" name="isbn" class="form-control" required />
+    </div>
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea
+        id="description"
+        name="description"
+        class="form-control"
+      ></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Add Book</button>
+  </form>
+</div>
+{% endblock %}
