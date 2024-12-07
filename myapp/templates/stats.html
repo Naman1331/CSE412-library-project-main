@@ -1,0 +1,21 @@
+{% extends "base.html" %} {% block title %}Stats - CSE 412{% endblock %} {%
+block content %}
+<div class="container mt-5">
+  <h1 class="mb-4">Library Statistics</h1>
+  <div class="card shadow-sm p-4">
+    <h3>Total Statistics:</h3>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <strong>Total Authors:</strong> {{ stats.total_authors }}
+      </li>
+      <li class="list-group-item">
+        <strong>Total Books:</strong> {{ stats.total_books }}
+      </li>
+      <li class="list-group-item">
+        <strong>Total Editions:</strong> {{ stats.total_editions }}
+      </li>
+      <!-- Add more stats here if needed -->
+    </ul>
+  </div>
+</div>
+{% endblock %}
